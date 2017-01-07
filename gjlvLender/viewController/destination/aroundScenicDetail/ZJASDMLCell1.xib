@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="34" id="F7H-00-drX" customClass="ZJASDMLCell1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F7H-00-drX" id="IZf-OO-0Th">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_ml.png" translatesAutoresizingMaskIntoConstraints="NO" id="KNg-Ky-HvL">
+                        <rect key="frame" x="20" y="0.0" width="7" height="32"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXt-aY-ke5">
+                        <rect key="frame" x="35" y="4" width="33" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="nXt-aY-ke5" firstAttribute="leading" secondItem="KNg-Ky-HvL" secondAttribute="trailing" constant="8" id="TB4-B8-poE"/>
+                    <constraint firstItem="nXt-aY-ke5" firstAttribute="top" secondItem="KNg-Ky-HvL" secondAttribute="top" constant="4" id="WZw-fT-7J6"/>
+                    <constraint firstItem="KNg-Ky-HvL" firstAttribute="leading" secondItem="IZf-OO-0Th" secondAttribute="leading" constant="20" id="X1S-Zj-AOC"/>
+                    <constraint firstAttribute="bottom" secondItem="KNg-Ky-HvL" secondAttribute="bottom" constant="1.5" id="fv4-Ue-18k"/>
+                    <constraint firstItem="KNg-Ky-HvL" firstAttribute="top" secondItem="IZf-OO-0Th" secondAttribute="top" id="hDq-Jz-MUc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="img" destination="KNg-Ky-HvL" id="DA1-Eb-mOL"/>
+                <outlet property="mlab_title" destination="nXt-aY-ke5" id="yh2-Yp-nKh"/>
+            </connections>
+            <point key="canvasLocation" x="32" y="103"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="a_ml.png" width="7" height="35"/>
+    </resources>
+</document>
