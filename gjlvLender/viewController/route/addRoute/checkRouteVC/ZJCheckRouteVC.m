@@ -78,14 +78,21 @@
     
 }
 - (IBAction)onclickSelectBtn:(id)sender {
-    ZJDepartVC *tempVC = [[ZJDepartVC alloc]init];
-    if (self.mMyRouteModel) {
-        tempVC.mMyRouteModel = self.mMyRouteModel;
+    @try {
+        ZJDepartVC *tempVC = [[ZJDepartVC alloc]init];
+        if (self.mMyRouteModel) {
+            tempVC.mMyRouteModel = self.mMyRouteModel;
+        }
+        if (self.mMyRouteModel1) {
+            tempVC.mMyRouteModel1 = self.mMyRouteModel1;
+        }
+        [self.navigationController pushViewController:tempVC animated:YES];
+    } @catch (NSException *exception) {
+        LDLOG(@"%@",exception);
+    } @finally {
+        
     }
-    if (self.mMyRouteModel1) {
-        tempVC.mMyRouteModel1 = self.mMyRouteModel1;
-    }
-    [self.navigationController pushViewController:tempVC animated:YES];
+    
 }
 - (IBAction)onclickComfirBtn:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

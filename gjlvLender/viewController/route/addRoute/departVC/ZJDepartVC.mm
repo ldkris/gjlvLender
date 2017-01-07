@@ -52,7 +52,7 @@
     __weak IBOutlet UIView *mNavView;
     bool mapCenter;
     bool _isSelectLeader;//是否选择了领队
-    ZJUserInfoModel *_model;
+    ZJCarFirendsModel *_model;
     
     BMKGeoCodeSearch* _geocodesearch;
     
@@ -113,40 +113,15 @@
     
     [self loadNavBarViews];
     
-    if (self.mMyRouteModel1)
+    if (self.mMyRouteModel)
     {
-        //首页精选路线
-        [self loadMapline:self.mMyRouteModel1.mafters];
-        self.mInfoTableView.hidden = YES;
-        return;
-    }
-    else
-    {
-        if (self.mMyRouteModel)
+        [self getLeaderDetail];
+        
+        if (self.mADDRoutesPoint == nil)
         {
-            if ([self.mMyRouteModel.mstatus integerValue] ==1 ||[self.mMyRouteModel.mstatus integerValue] ==2) {
-                self.mbtn_res.hidden = NO;
-            }else{
-                self.mbtn_res.hidden = YES;
-            }
-            
-            if (self.mMyRouteModel.mleaderId)
-            {
-                _isSelectLeader = YES;
-                [self getLeaderDetail];
-            }
-            else
-            {
-                _isSelectLeader = NO;
-                [self getRecommendLeader];
-            }
-            
-            if (self.mADDRoutesPoint == nil)
-            {
-                self.mADDRoutesPoint  = [NSMutableArray  arrayWithArray:self.mMyRouteModel.mafters];
-            }
-            [self loadMapline:self.mADDRoutesPoint];
+            self.mADDRoutesPoint  = [NSMutableArray  arrayWithArray:self.mMyRouteModel.mafters];
         }
+        [self loadMapline:self.mADDRoutesPoint];
     }
 }
 
@@ -160,6 +135,9 @@
     [_mapView viewWillAppear];
     if (mTrView) {
         mTrView.hidden = NO;
+        [mTrView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_equalTo(0);
+        }];
     }
     
     if (self.mMyRouteModel1) {
@@ -179,9 +157,6 @@
     _routesearch.delegate = (id)self; // 此处记得不用的时候需要置nil，否则影响内存的释放
     _geocodesearch.delegate = (id)self;
     
-    [mTrView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(0);
-    }];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -250,24 +225,24 @@
         URID =self.mRid;
     }
     
-    NSDictionary *mParaDic = @{@"leader":ZJ_UserID,@"urId":URID};
-    [HttpApi getRecommendLeader:mParaDic SuccessBlock:^(id responseBody) {
-        NSError *error;
-        ZJUserInfoModel *temp = [MTLJSONAdapter modelOfClass:[ZJUserInfoModel class] fromJSONDictionary:responseBody error:&error];
-        if (!error) {
-            _model = temp;
-            [self.mInfoTableView reloadData];
-        }
-        
-    } FailureBlock:^(NSError *error) {
-        
-    }];
+//    NSDictionary *mParaDic = @{@"userId":ZJ_UserID,@"urId":URID};
+//    [HttpApi getRecommendLeader:mParaDic SuccessBlock:^(id responseBody) {
+//        NSError *error;
+//        ZJUserInfoModel *temp = [MTLJSONAdapter modelOfClass:[ZJUserInfoModel class] fromJSONDictionary:responseBody error:&error];
+//        if (!error) {
+//            ZJUserInfoModel = temp;
+//            [self.mInfoTableView reloadData];
+//        }
+//        
+//    } FailureBlock:^(NSError *error) {
+//        
+//    }];
     
 }
 -(void)getLeaderDetail{
-    [HttpApi getUserInfoDetail:@{@"userId":ZJ_UserID,@"leaderId":[self.mMyRouteModel.mleaderId stringValue]}SuccessBlock:^(id responseBody) {
+    [HttpApi getUserInfoDetail:@{@"leaderId":ZJ_UserID,@"userId":[self.mMyRouteModel.mcreater stringValue]}SuccessBlock:^(id responseBody) {
         NSError *error;
-        ZJUserInfoModel *temp = [MTLJSONAdapter modelOfClass:[ZJUserInfoModel class] fromJSONDictionary:responseBody error:&error];
+        ZJCarFirendsModel *temp = [MTLJSONAdapter modelOfClass:[ZJCarFirendsModel class] fromJSONDictionary:responseBody error:&error];
         if (!error) {
             _model = temp;
             [self loadLeaderInfo];
@@ -281,7 +256,7 @@
     
     NSString *latStr = [NSString stringWithFormat:@"%f",[ZJSingleHelper shareNetWork].mUeserPt.latitude];
     NSString *lngStr = [NSString stringWithFormat:@"%f",[ZJSingleHelper shareNetWork].mUeserPt.longitude];
-    [[ZJNetWorkingHelper shareNetWork]getNearbyUsers:@{@"userId":ZJ_UserID,@"destId":@"1",@"lat":latStr,@"lng":lngStr,@"pageIndex":@"1",@"pageSize":@"10"} SuccessBlock:^(id responseBody) {
+    [[ZJNetWorkingHelper shareNetWork]getNearbyUsers:@{@"leaderId":ZJ_UserID,@"destId":@"1",@"lat":latStr,@"lng":lngStr,@"pageIndex":@"1",@"pageSize":@"10"} SuccessBlock:^(id responseBody) {
         NSError *error;
         NSArray *tempArray = [MTLJSONAdapter modelsOfClass:[ZJNearUserModel class] fromJSONArray:responseBody[@"users"] error:&error];
         self.mNearUsers = tempArray;
@@ -295,7 +270,7 @@
 -(void)getNearbyRouteUsers:(CLLocationCoordinate2D )coor{
     NSString *latStr = [NSString stringWithFormat:@"%f",coor.latitude];
     NSString *lngStr = [NSString stringWithFormat:@"%f",coor.longitude];
-    [[ZJNetWorkingHelper shareNetWork]getNearbyUsers:@{@"userId":ZJ_UserID,@"destId":@"1",@"lat":latStr,@"lng":lngStr,@"pageIndex":@"1",@"pageSize":@"10"} SuccessBlock:^(id responseBody) {
+    [[ZJNetWorkingHelper shareNetWork]getNearbyUsers:@{@"leaderId":ZJ_UserID,@"destId":@"1",@"lat":latStr,@"lng":lngStr,@"pageIndex":@"1",@"pageSize":@"10"} SuccessBlock:^(id responseBody) {
         NSError *error;
         NSArray *tempArray = [MTLJSONAdapter modelsOfClass:[ZJNearUserModel class] fromJSONArray:responseBody[@"users"] error:&error];
         
@@ -319,7 +294,7 @@
     NSDictionary *mparcDic;
     NSString *latStr = [NSString stringWithFormat:@"%f",coor.latitude];
     NSString *lngStr = [NSString stringWithFormat:@"%f",coor.longitude];
-    mparcDic = @{@"userId":ZJ_UserID,@"destId":@"1",@"lat":latStr,@"lng":lngStr,@"pageIndex":@"1",@"pageSize":@"10"};
+    mparcDic = @{@"leaderId":ZJ_UserID,@"destId":@"1",@"lat":latStr,@"lng":lngStr,@"pageIndex":@"1",@"pageSize":@"10"};
     
     [HttpApi getSpotList:mparcDic SuccessBlock:^(id responseBody) {
         NSError *error;
@@ -343,7 +318,7 @@
     NSDictionary *mparcDic;
     NSString *latStr = [NSString stringWithFormat:@"%f",coor.latitude];
     NSString *lngStr = [NSString stringWithFormat:@"%f",coor.longitude];
-    mparcDic = @{@"userId":ZJ_UserID,@"destId":@"1",@"lat":latStr,@"lng":lngStr,@"pageIndex":@"1",@"pageSize":@"100"};
+    mparcDic = @{@"leaderId":ZJ_UserID,@"destId":@"1",@"lat":latStr,@"lng":lngStr,@"pageIndex":@"1",@"pageSize":@"100"};
     
     [HttpApi getTrafficList:mparcDic SuccessBlock:^(id responseBody) {
         NSError *error;
@@ -561,26 +536,18 @@
     }
 }
 - (IBAction)onclickRescueBtn:(id)sender {
-    //[_mapView setCenterCoordinate:_mapView.centerCoordinate animated:YES];
-    
-    ZJPutInfoView *temp = [[NSBundle mainBundle]loadNibNamed:@"ZJPutInfoView" owner:nil options:nil][0];
-    temp.mlab_time.text = [MyFounctions getCurrentDate];
-    temp.mlab_adress.text = userLoc;
-    [temp onclickSendBtnWithBlock:^(UIButton *sender) {
-        [temp removeFromSuperview];
-        NSString *ad= [NSString stringWithFormat:@"%f",[ZJSingleHelper shareNetWork].mUeserPt.latitude ];
-        NSString *lng= [NSString stringWithFormat:@"%f",[ZJSingleHelper shareNetWork].mUeserPt.longitude];
-        NSDictionary *param = @{@"userId":ZJ_UserID,@"address":userLoc,@"lat":ad,@"lng":lng};
-        [HttpApi putRescue:param SuccessBlock:^(id responseBody) {
-            [SVProgressHUD showSuccessWithStatus:@"成功"];
-        } FailureBlock:^(NSError *error) {
-            
-        }];
-    }];
-    [self.navigationController.view addSubview:temp];
-    [temp mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.bottom.mas_equalTo(0);
-    }];
+    if (_model.mMobile) {
+        NSString *chatter = [@"user_" stringByAppendingString:_model.mMobile];
+        if (chatter) {
+            ZJChatVC *viewController = [[ZJChatVC alloc] initWithConversationChatter:chatter conversationType:EMConversationTypeChat];
+            if(_model.mNickName){
+                viewController.title = _model.mNickName;
+            }else{
+                viewController.title = _model.mName;
+            }
+            [self.navigationController pushViewController:viewController animated:YES];
+        }
+    }
 }
 - (IBAction)onclickPutNeedBtn:(id)sender {
     ZJPutNeedInfoView *mNeedView = [[NSBundle mainBundle]loadNibNamed:@"ZJPutNeedInfoView" owner:nil options:nil][0];
@@ -609,36 +576,36 @@
 #pragma mark private
 -(void)loadLeaderInfo{
     if (_model) {
-        if (self.mMyRouteModel.mleaderId == nil) {
-            [self.mlab_status setTitle:@"为您推荐领队" forState:UIControlStateNormal];
-            return;
+        if (_model.mNickName) {
+             self.mlab_name.text = _model.mNickName;
         }else{
-            switch ([self.mMyRouteModel.mstatus integerValue]) {
-                case 2:{
-                    [self.mlab_status setTitle:@"服务中" forState:UIControlStateNormal];
-                    break;}
-                case 1:
-                    [self.mlab_status setTitle:@"待服务" forState:UIControlStateNormal];
-                    break;
-                case 3:
-                    if (self.mMyRouteModel.mcreater == nil) {
-                        [self.mlab_status setTitle:@"已结束" forState:UIControlStateNormal];
-                        
-                    }else{
-                        [self.mlab_status setTitle:@"待评价" forState:UIControlStateNormal];
-                    }
-                    break;
-                case 4:
-                    [self.mlab_status setTitle:@"已评价" forState:UIControlStateNormal];
-                    break;
+            self.mlab_name.text = _model.mName;
+        }
+        [self.mimg_head sd_setImageWithURL:[NSURL URLWithString:_model.mHeadImgUrl] placeholderImage:[UIImage imageNamed:@"my_head_def.png"]];
+        
+        switch ([self.mMyRouteModel.mstatus integerValue]) {
+            case 2:{
+                [self.mlab_status setTitle:@"服务中" forState:UIControlStateNormal];
+                break;}
+            case 1:
+                [self.mlab_status setTitle:@"待服务" forState:UIControlStateNormal];
+                break;
+            case 3:
+                if (self.mMyRouteModel.mcreater == nil) {
+                    [self.mlab_status setTitle:@"已结束" forState:UIControlStateNormal];
                     
-                default:
-                    break;
-            }
+                }else{
+                    [self.mlab_status setTitle:@"待评价" forState:UIControlStateNormal];
+                }
+                break;
+            case 4:
+                [self.mlab_status setTitle:@"已评价" forState:UIControlStateNormal];
+                break;
+                
+            default:
+                break;
         }
         
-        self.mlab_name.text = _model.mNickName;
-        [self.mimg_head sd_setImageWithURL:[NSURL URLWithString:_model.mHeadImgUrl] placeholderImage:[UIImage imageNamed:@"my_head_def.png"]];
     }
 }
 -(void)loadMapline:(NSArray *)mafters{
@@ -867,11 +834,11 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    if(indexPath.row>=1){
+    
         [tableView registerNib:[UINib nibWithNibName:@"ZJDepartCell1" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"ZJDepartCell1"];
         ZJDepartCell1*cell = [tableView dequeueReusableCellWithIdentifier:@"ZJDepartCell1"];
-        if (_model) {
-            [cell loadDataSoureWithModel:_model];
-        }
+        [cell loadDataSoureWithModel:_model];
         [cell onclickCallBtnBlock:^(UIButton *sender) {
             if (_model.mMobile) {
                 [MyFounctions callPhone:_model.mMobile];
@@ -882,40 +849,43 @@
                 NSString *chatter = [@"user_" stringByAppendingString:_model.mMobile];
                 if (chatter) {
                     ZJChatVC *viewController = [[ZJChatVC alloc] initWithConversationChatter:chatter conversationType:EMConversationTypeChat];
-                    viewController.title = _model.mNickName;
+                    if(_model.mNickName){
+                        viewController.title = _model.mNickName;
+                    }else{
+                        viewController.title = _model.mName;
+                    }
                     [self.navigationController pushViewController:viewController animated:YES];
                 }
             }
         }];
         return cell;
-   // }
+    }
     
-//    [tableView registerNib:[UINib nibWithNibName:@"ZJDepartHeaderCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"ZJDepartHeaderCell"];
-//    ZJDepartHeaderCell*cell = [tableView dequeueReusableCellWithIdentifier:@"ZJDepartHeaderCell"];
-//    [cell loadDataSoureWithModel:self.mMyRouteModel];
-//    [cell onclickBackBtnBlock:^(UIButton *sender) {
-//        [self onclickBackBtn:sender];
-//    }];
-//    [cell onclickAddBtnBlock:^(UIButton *sender) {
-//        [self onclickAddBtn:sender];
-//    }];
-//    [cell onclickDownOrUpBtnBlock:^(UIButton *sender) {
-//        
-//        CABasicAnimation *animation = [ CABasicAnimation animationWithKeyPath : @"transform.translation.y"]; ///.y 的话就向下移动。
-//        animation. toValue = [NSNumber numberWithInteger:(-MainScreenFrame_Width)];
-//        animation. fromValue = [NSNumber numberWithInteger:0];
-//        animation. duration = 0.2;
-//        animation. removedOnCompletion = NO ; //yes 的话，又返回原位置了。
-//        animation. repeatCount = 1 ;
-//        animation. fillMode = kCAFillModeForwards ;
-//        [self.mInfoTableView.layer addAnimation:animation forKey:@"transform.translation.y" ];
-//        
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            self.mInfoTableView.hidden = YES;
-//        });
-//    }];
-//    return cell;
-    return [[UITableViewCell alloc]init];
+    [tableView registerNib:[UINib nibWithNibName:@"ZJDepartHeaderCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"ZJDepartHeaderCell"];
+    ZJDepartHeaderCell*cell = [tableView dequeueReusableCellWithIdentifier:@"ZJDepartHeaderCell"];
+    [cell loadDataSoureWithModel:self.mMyRouteModel];
+    [cell onclickBackBtnBlock:^(UIButton *sender) {
+        [self onclickBackBtn:sender];
+    }];
+    [cell onclickAddBtnBlock:^(UIButton *sender) {
+        [self onclickAddBtn:sender];
+    }];
+    [cell onclickDownOrUpBtnBlock:^(UIButton *sender) {
+        
+        CABasicAnimation *animation = [ CABasicAnimation animationWithKeyPath : @"transform.translation.y"]; ///.y 的话就向下移动。
+        animation. toValue = [NSNumber numberWithInteger:(-MainScreenFrame_Width)];
+        animation. fromValue = [NSNumber numberWithInteger:0];
+        animation. duration = 0.2;
+        animation. removedOnCompletion = NO ; //yes 的话，又返回原位置了。
+        animation. repeatCount = 1 ;
+        animation. fillMode = kCAFillModeForwards ;
+        [self.mInfoTableView.layer addAnimation:animation forKey:@"transform.translation.y" ];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.mInfoTableView.hidden = YES;
+        });
+    }];
+    return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

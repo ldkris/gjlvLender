@@ -16,5 +16,5 @@
 @property(nonatomic,copy)void(^ChatBlcok)(UIButton *sender);
 -(void)onclickCallBtnBlock:(void(^)(UIButton *sender))block;
 -(void)onclickChatBlcokBtnBlock:(void(^)(UIButton *sender))block;
--(void)loadDataSoureWithModel:(ZJUserInfoModel *)model;
+-(void)loadDataSoureWithModel:(ZJCarFirendsModel *)model;
 @end

@@ -14,9 +14,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZJDepartVC">
             <connections>
                 <outlet property="_mapView" destination="uml-XI-0Vo" id="Vid-qW-HgX"/>
-                <outlet property="btn_res" destination="nS5-Zf-b4S" id="lhe-mk-UtI"/>
                 <outlet property="mInfoTableView" destination="Ptp-gr-wm3" id="TgV-PG-6jl"/>
                 <outlet property="mNavView" destination="Kbf-SE-ebm" id="i7o-7W-Phx"/>
+                <outlet property="mbtn_res" destination="nS5-Zf-b4S" id="y6c-4g-Krx"/>
                 <outlet property="mimg_head" destination="iS8-jp-jD8" id="Oj7-Ly-rQe"/>
                 <outlet property="mlab_name" destination="1ox-Ib-0Re" id="gMH-TS-TjJ"/>
                 <outlet property="mlab_status" destination="pUD-BY-BAW" id="9xM-7b-xAn"/>
@@ -93,29 +93,32 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUD-BY-BAW">
-                                    <rect key="frame" x="190" y="23" width="47" height="15"/>
+                                    <rect key="frame" x="190" y="18" width="74" height="27"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                    <inset key="titleEdgeInsets" minX="-25" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <inset key="imageEdgeInsets" minX="58" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="服务中" image="ds_down.png">
+                                    <state key="normal" title="为您推荐领队">
                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
                                         <action selector="onclickUpTableView:" destination="-1" eventType="touchUpInside" id="FjX-VT-uMG"/>
                                     </connections>
                                 </button>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ds_down.png" translatesAutoresizingMaskIntoConstraints="NO" id="nVJ-4L-exc">
+                                    <rect key="frame" x="266" y="26.5" width="10" height="10"/>
+                                </imageView>
                             </subviews>
                             <constraints>
+                                <constraint firstItem="nVJ-4L-exc" firstAttribute="centerY" secondItem="pUD-BY-BAW" secondAttribute="centerY" id="2L6-P9-u84"/>
                                 <constraint firstItem="lzS-7J-Eoq" firstAttribute="centerY" secondItem="Ntw-na-i4h" secondAttribute="centerY" id="92O-kw-bRp"/>
                                 <constraint firstItem="1ox-Ib-0Re" firstAttribute="top" secondItem="iS8-jp-jD8" secondAttribute="top" id="A6d-yo-uDM"/>
                                 <constraint firstItem="lzS-7J-Eoq" firstAttribute="height" secondItem="Ntw-na-i4h" secondAttribute="height" id="CzY-Rd-3eW"/>
+                                <constraint firstItem="nVJ-4L-exc" firstAttribute="leading" secondItem="pUD-BY-BAW" secondAttribute="trailing" constant="2" id="KDQ-Jm-0EU"/>
                                 <constraint firstAttribute="bottom" secondItem="Ntw-na-i4h" secondAttribute="bottom" id="KgY-zT-gqf"/>
                                 <constraint firstItem="iS8-jp-jD8" firstAttribute="centerX" secondItem="xte-8m-K7U" secondAttribute="centerX" constant="-25" id="MXt-UV-nEj"/>
                                 <constraint firstAttribute="bottom" secondItem="iS8-jp-jD8" secondAttribute="bottom" constant="2" id="MhQ-OO-FyL"/>
                                 <constraint firstItem="Ntw-na-i4h" firstAttribute="leading" secondItem="xte-8m-K7U" secondAttribute="leading" constant="5" id="UV8-fN-CfA"/>
                                 <constraint firstAttribute="height" constant="64" id="VNV-m2-JOn"/>
                                 <constraint firstItem="1ox-Ib-0Re" firstAttribute="leading" secondItem="iS8-jp-jD8" secondAttribute="trailing" constant="7.5" id="bZO-6D-FnQ"/>
-                                <constraint firstItem="pUD-BY-BAW" firstAttribute="top" secondItem="1ox-Ib-0Re" secondAttribute="bottom" id="i2w-hF-Rcs"/>
+                                <constraint firstItem="pUD-BY-BAW" firstAttribute="top" secondItem="1ox-Ib-0Re" secondAttribute="bottom" constant="-5" id="i2w-hF-Rcs"/>
                                 <constraint firstAttribute="trailing" secondItem="lzS-7J-Eoq" secondAttribute="trailing" constant="5" id="q6r-an-o4v"/>
                                 <constraint firstItem="pUD-BY-BAW" firstAttribute="leading" secondItem="1ox-Ib-0Re" secondAttribute="leading" id="qeK-BT-Bcf"/>
                                 <constraint firstItem="lzS-7J-Eoq" firstAttribute="width" secondItem="Ntw-na-i4h" secondAttribute="width" id="uDr-Xn-CbO"/>
@@ -140,6 +143,13 @@
                         <outlet property="delegate" destination="-1" id="8Be-0d-tkz"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZiB-lS-lKj">
+                    <rect key="frame" x="318" y="405" width="44" height="66"/>
+                    <state key="normal" image="zj_putNeed.png"/>
+                    <connections>
+                        <action selector="onclickPutNeedBtn:" destination="-1" eventType="touchUpInside" id="93P-fB-hFR"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="Kbf-SE-ebm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="42I-ho-lzc"/>
@@ -151,6 +161,7 @@
                 <constraint firstAttribute="trailing" secondItem="zbn-wm-959" secondAttribute="trailing" constant="13" id="Kf0-aZ-SuG"/>
                 <constraint firstAttribute="trailing" secondItem="uml-XI-0Vo" secondAttribute="trailing" id="LMb-IN-g3R"/>
                 <constraint firstItem="Ptp-gr-wm3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MSk-Ku-LBj"/>
+                <constraint firstItem="ZiB-lS-lKj" firstAttribute="top" secondItem="NVf-Hb-CFR" secondAttribute="bottom" constant="13" id="O4e-hY-35r"/>
                 <constraint firstItem="Kbf-SE-ebm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="OAF-Lf-CTY"/>
                 <constraint firstAttribute="trailing" secondItem="Kbf-SE-ebm" secondAttribute="trailing" id="SGp-0O-i3A"/>
                 <constraint firstItem="zbn-wm-959" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-20" id="b1V-d8-zpq"/>
@@ -158,8 +169,9 @@
                 <constraint firstItem="NVf-Hb-CFR" firstAttribute="top" secondItem="zbn-wm-959" secondAttribute="bottom" constant="13" id="ga1-mE-5j6"/>
                 <constraint firstAttribute="bottom" secondItem="nS5-Zf-b4S" secondAttribute="bottom" constant="13" id="l6r-Q3-bOQ"/>
                 <constraint firstItem="uml-XI-0Vo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lFf-lI-ztT"/>
+                <constraint firstItem="ZiB-lS-lKj" firstAttribute="leading" secondItem="NVf-Hb-CFR" secondAttribute="leading" id="qDl-fe-yfT"/>
             </constraints>
-            <point key="canvasLocation" x="-174.5" y="132.5"/>
+            <point key="canvasLocation" x="-140.5" y="133.5"/>
         </view>
     </objects>
     <resources>
@@ -170,5 +182,6 @@
         <image name="r_add.png" width="19" height="25"/>
         <image name="r_jyBG.png" width="67" height="67"/>
         <image name="r_rf.png" width="44" height="66"/>
+        <image name="zj_putNeed.png" width="44" height="66"/>
     </resources>
 </document>

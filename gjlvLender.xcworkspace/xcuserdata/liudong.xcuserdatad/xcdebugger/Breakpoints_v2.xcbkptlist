@@ -52,7 +52,7 @@
                   moduleName = "gjlvLender"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liudong/Desktop/%E9%A2%86%E9%98%9F/gjlvLender/gjlvLender/classes/helper/ZJNetWorkingHelper.m"
-                  timestampString = "505313300.850989"
+                  timestampString = "505467485.632841"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "136"
@@ -67,7 +67,7 @@
                   moduleName = "gjlvLender"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liudong/Desktop/%E9%A2%86%E9%98%9F/gjlvLender/gjlvLender/classes/helper/ZJNetWorkingHelper.m"
-                  timestampString = "505313300.853683"
+                  timestampString = "505467485.639905"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "136"
@@ -324,7 +324,7 @@
                   moduleName = "gjlvLender"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liudong/Desktop/%E9%A2%86%E9%98%9F/gjlvLender/gjlvLender/viewController/destination/aroundScenic/ZJAroundScenicVC.m"
-                  timestampString = "505313300.889908"
+                  timestampString = "505467485.697038"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "128"
@@ -339,7 +339,7 @@
                   moduleName = "gjlvLender"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liudong/Desktop/%E9%A2%86%E9%98%9F/gjlvLender/gjlvLender/viewController/destination/aroundScenic/ZJAroundScenicVC.m"
-                  timestampString = "505313300.891336"
+                  timestampString = "505467485.699057"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "129"
@@ -420,7 +420,7 @@
                   moduleName = "gjlvLender"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liudong/Desktop/%E9%A2%86%E9%98%9F/gjlvLender/gjlvLender/classes/helper/ZJNetWorkingHelper.m"
-                  timestampString = "505313300.895187"
+                  timestampString = "505467485.70359"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "136"
@@ -435,7 +435,7 @@
                   moduleName = "gjlvLender"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liudong/Desktop/%E9%A2%86%E9%98%9F/gjlvLender/gjlvLender/classes/helper/ZJNetWorkingHelper.m"
-                  timestampString = "505313300.896996"
+                  timestampString = "505467485.706602"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "136"
@@ -443,6 +443,54 @@
                   offsetFromSymbolStart = "15">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "gjlvLender/viewController/route/addRoute/checkRouteVC/ZJCheckRouteVC.m"
+            timestampString = "505465840.219589"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "-onclickSelectBtn:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "gjlvLender/viewController/route/addRoute/departVC/ZJDepartVC.mm"
+            timestampString = "505467643.784053"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "583"
+            endingLineNumber = "583"
+            landmarkName = "-loadLeaderInfo"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "gjlvLender/viewController/route/addRoute/departVC/ZJDepartVC.mm"
+            timestampString = "505467319.07789"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "539"
+            endingLineNumber = "539"
+            landmarkName = "-onclickRescueBtn:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

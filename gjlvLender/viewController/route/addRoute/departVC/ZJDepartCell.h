@@ -13,5 +13,5 @@
 @property(nonatomic,copy)void(^selectBlcok)(UIButton *sender);
 -(void)onclickDeletailBtnBlock:(void(^)(UIButton *sender))block;
 -(void)onclickSelectBlcokBtnBlock:(void(^)(UIButton *sender))block;
--(void)loadDataSoureWithModel:(ZJLeaderDetailModel *)model;
+-(void)loadDataSoureWithModel:(ZJUserInfoModel *)model;
 @end
