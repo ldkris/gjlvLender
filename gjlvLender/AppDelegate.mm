@@ -14,7 +14,7 @@
 #import "ZJRegisterVC.h"
 #import "ZJTabBarVC.h"
 #import "BaseNavigationgVC.h"
-
+#import <Bugly/Bugly.h>
 #import "ZJDestinationVC.h"
 #import "ZJGuideVC.h"
 #import "ZJRouteVC.h"
@@ -80,6 +80,7 @@ BMKMapManager* _mapManager;
     } FailureBlock:^(NSError *error) {
         
     }];
+    [Bugly startWithAppId:@"499c19230f"];
     
     [SVProgressHUD setMinimumDismissTimeInterval:0.8];
     //注册定位权限
@@ -93,7 +94,6 @@ BMKMapManager* _mapManager;
     _locService.distanceFilter = 1000;
     _locService.delegate = (id)self;
     [_locService startUserLocationService];
-    
     
     //打开调试日志
     [[UMSocialManager defaultManager] openLog:YES];

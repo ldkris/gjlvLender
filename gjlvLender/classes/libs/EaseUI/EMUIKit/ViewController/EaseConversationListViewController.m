@@ -168,9 +168,6 @@
                                return(NSComparisonResult)NSOrderedDescending;
                            }
                        }];
-    
-    
-    
     [self.dataArray removeAllObjects];
     for (EMConversation *converstion in sorted) {
         EaseConversationModel *model = nil;
@@ -183,7 +180,9 @@
         }
         
         if (model) {
-            [self.dataArray addObject:model];
+            if ([model.title containsString:@"user_"] || [model.title containsString:@"service"]||[model.title containsString:@"leader_"]) {
+                [self.dataArray addObject:model];
+            }
         }
     }
     

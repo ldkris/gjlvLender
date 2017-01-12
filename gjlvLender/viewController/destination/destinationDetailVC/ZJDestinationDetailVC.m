@@ -17,7 +17,7 @@
 #import "ZJBoarderVC.h"
 #import "ZJDDetailVC.h"
 #import "ZJSendPhotoVC.h"
-
+#import "WaterFlowLayout.h"
 #import <UIKit/UIKit.h>
 @interface ZJDestinationDetailVC ()<UIImagePickerControllerDelegate>
     @property (weak, nonatomic) IBOutlet UIView *mNavView;
@@ -30,6 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    WaterFlowLayout * layout = [[WaterFlowLayout alloc]init];
+    [self.mInfoCollectionView setCollectionViewLayout:layout];
     // 下拉刷新
     self.mInfoCollectionView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.mDataSoure removeAllObjects];

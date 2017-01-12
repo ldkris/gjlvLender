@@ -26,6 +26,13 @@
         return;
     }
     self.mlab_title.text = model.mdname;
-    [self.img_bg sd_setImageWithURL:[NSURL URLWithString:model.mphotos] placeholderImage:[UIImage imageNamed:@"d_default.png"]];
+    if([model.mphotos containsString:@","]){
+        NSArray *mImageS = [model.mphotos componentsSeparatedByString:@","];
+        if (mImageS && mImageS.count>0) {
+            [self.img_bg sd_setImageWithURL:[NSURL URLWithString:mImageS[0]] placeholderImage:[UIImage imageNamed:@"d_default.png"]];
+        }
+    }else{
+        [self.img_bg sd_setImageWithURL:[NSURL URLWithString:model.mphotos] placeholderImage:[UIImage imageNamed:@"d_default.png"]];
+    };
 }
 @end

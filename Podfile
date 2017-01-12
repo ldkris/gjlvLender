@@ -17,4 +17,5 @@ target "gjlvLender" do
     pod 'UMengUShare/Social/QQ'
     pod 'UMengUShare/UI’
 #    pod 'MJRefresh'
+pod 'Bugly'
 end

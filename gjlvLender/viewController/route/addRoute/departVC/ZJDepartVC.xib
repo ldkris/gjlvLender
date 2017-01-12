@@ -143,7 +143,7 @@
                         <outlet property="delegate" destination="-1" id="8Be-0d-tkz"/>
                     </connections>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZiB-lS-lKj">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZiB-lS-lKj">
                     <rect key="frame" x="318" y="405" width="44" height="66"/>
                     <state key="normal" image="zj_putNeed.png"/>
                     <connections>

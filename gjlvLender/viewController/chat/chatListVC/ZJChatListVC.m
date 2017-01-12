@@ -20,7 +20,7 @@
     self.showRefreshHeader = YES;
     self.delegate = (id)self;
     self.dataSource = (id)self;
-    [self tableViewDidTriggerHeaderRefresh];
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,6 +34,7 @@
 #pragma mark - public
 -(void)refresh
 {
+     [self tableViewDidTriggerHeaderRefresh];
     [self refreshAndSortView];
 }
 - (void)tableViewDidTriggerHeaderRefresh

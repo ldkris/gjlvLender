@@ -79,11 +79,10 @@
         ZJSceneDetailModel *tempModel = [MTLJSONAdapter modelOfClass:[ZJSceneDetailModel class] fromJSONDictionary:responseBody error:&error];
         _mSceneDetailModel = tempModel;
         
-        NSIndexSet *secontion = [NSIndexSet indexSetWithIndex:0];
-//        [self.mInfoTableView reloadSections:secontion withRowAnimation:UITableViewRowAnimationNone];
-        [self.mInfoTableView reloadData];
-        
+        [_mSecneComms removeAllObjects];
+        self.pageIndex = 1;
         [self getSceneCommentList];
+        
         if([_mSceneDetailModel.misLike boolValue]){
             [self.mBtn_ZYG setTitle:@"取消点赞" forState:UIControlStateNormal];
         }else{
@@ -125,7 +124,6 @@
         NSError *error;
         NSArray *tepmArry = [MTLJSONAdapter modelsOfClass:[ZJSceneCommModel class] fromJSONArray:responseBody[@"comments"] error:&error];
         [_mSecneComms addObjectsFromArray:tepmArry];
-        NSIndexSet *secontion = [NSIndexSet indexSetWithIndex:1];
         [self.mInfoTableView reloadData];
         
     } FailureBlock:^(NSError *error) {

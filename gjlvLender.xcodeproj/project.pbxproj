@@ -369,6 +369,7 @@
 		A04AE6801E1E931D00209B70 /* zj_fjcy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A04AE67D1E1E931D00209B70 /* zj_fjcy@2x.png */; };
 		A04AE6811E1E931D00209B70 /* zj_sscy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A04AE67E1E1E931D00209B70 /* zj_sscy@2x.png */; };
 		A04AE6821E1E931D00209B70 /* zj_xzld@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A04AE67F1E1E931D00209B70 /* zj_xzld@2x.png */; };
+		A053F3501E24C1230046FAE6 /* WaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A053F34F1E24C1230046FAE6 /* WaterFlowLayout.m */; };
 		A05A4E061E0D04C700239F95 /* ZJAppraiseLeaderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A05A4D871E0D04C600239F95 /* ZJAppraiseLeaderVC.m */; };
 		A05A4E071E0D04C700239F95 /* ZJAppraiseLeaderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A05A4D881E0D04C600239F95 /* ZJAppraiseLeaderVC.xib */; };
 		A05A4E081E0D04C700239F95 /* ZJCheckRouteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A05A4D8B1E0D04C600239F95 /* ZJCheckRouteVC.m */; };
@@ -627,6 +628,7 @@
 		A09EBB001E10FD780041BC21 /* ZJMyCommDeatilVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A09EBAFE1E10FD780041BC21 /* ZJMyCommDeatilVC.xib */; };
 		A09EBB051E10FEFD0041BC21 /* ZJCommDeatlCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A09EBB031E10FEFD0041BC21 /* ZJCommDeatlCell.m */; };
 		A09EBB061E10FEFD0041BC21 /* ZJCommDeatlCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A09EBB041E10FEFD0041BC21 /* ZJCommDeatlCell.xib */; };
+		A0C4CB261E25D7CF00879D7E /* dd_sc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0C4CB251E25D7CF00879D7E /* dd_sc@2x.png */; };
 		A0DE4EDC1E209F3600F4E02A /* trafficReportView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DE4ED71E209F3600F4E02A /* trafficReportView.m */; };
 		A0DE4EDD1E209F3600F4E02A /* trafficReportView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0DE4ED81E209F3600F4E02A /* trafficReportView.xib */; };
 		A0DE4EDE1E209F3600F4E02A /* ZJPutNeedInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DE4EDA1E209F3600F4E02A /* ZJPutNeedInfoView.m */; };
@@ -1311,6 +1313,8 @@
 		A04AE67D1E1E931D00209B70 /* zj_fjcy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zj_fjcy@2x.png"; sourceTree = "<group>"; };
 		A04AE67E1E1E931D00209B70 /* zj_sscy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zj_sscy@2x.png"; sourceTree = "<group>"; };
 		A04AE67F1E1E931D00209B70 /* zj_xzld@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zj_xzld@2x.png"; sourceTree = "<group>"; };
+		A053F34E1E24C1230046FAE6 /* WaterFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowLayout.h; sourceTree = "<group>"; };
+		A053F34F1E24C1230046FAE6 /* WaterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowLayout.m; sourceTree = "<group>"; };
 		A05A4D861E0D04C600239F95 /* ZJAppraiseLeaderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJAppraiseLeaderVC.h; sourceTree = "<group>"; };
 		A05A4D871E0D04C600239F95 /* ZJAppraiseLeaderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJAppraiseLeaderVC.m; sourceTree = "<group>"; };
 		A05A4D881E0D04C600239F95 /* ZJAppraiseLeaderVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZJAppraiseLeaderVC.xib; sourceTree = "<group>"; };
@@ -1616,6 +1620,7 @@
 		A09EBB021E10FEFD0041BC21 /* ZJCommDeatlCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCommDeatlCell.h; sourceTree = "<group>"; };
 		A09EBB031E10FEFD0041BC21 /* ZJCommDeatlCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCommDeatlCell.m; sourceTree = "<group>"; };
 		A09EBB041E10FEFD0041BC21 /* ZJCommDeatlCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZJCommDeatlCell.xib; sourceTree = "<group>"; };
+		A0C4CB251E25D7CF00879D7E /* dd_sc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dd_sc@2x.png"; sourceTree = "<group>"; };
 		A0DE4ED61E209F3600F4E02A /* trafficReportView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trafficReportView.h; sourceTree = "<group>"; };
 		A0DE4ED71E209F3600F4E02A /* trafficReportView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = trafficReportView.m; sourceTree = "<group>"; };
 		A0DE4ED81E209F3600F4E02A /* trafficReportView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = trafficReportView.xib; sourceTree = "<group>"; };
@@ -1944,6 +1949,8 @@
 		A036ADB91E0CFEDE0080FF26 /* globalView */ = {
 			isa = PBXGroup;
 			children = (
+				A053F34E1E24C1230046FAE6 /* WaterFlowLayout.h */,
+				A053F34F1E24C1230046FAE6 /* WaterFlowLayout.m */,
 				A05A4E591E0D055300239F95 /* RouteAnnotation.h */,
 				A05A4E5A1E0D055300239F95 /* RouteAnnotation.mm */,
 				A036ADBA1E0CFEDE0080FF26 /* BaseLayout.h */,
@@ -3333,6 +3340,7 @@
 		A05A4E5C1E0D092D00239F95 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A0C4CB251E25D7CF00879D7E /* dd_sc@2x.png */,
 				A0DE4EEB1E20A03E00F4E02A /* icon_no_rb@2x.png */,
 				A0DE4EEC1E20A03E00F4E02A /* icon_yes_rb@2x.png */,
 				A0DE4EED1E20A03E00F4E02A /* zj_hj@2x.png */,
@@ -3980,6 +3988,7 @@
 				A05A4FAC1E0D092E00239F95 /* tab_wd_select@2x.png in Resources */,
 				A0DE4EFB1E20A03E00F4E02A /* map_t_js@2x.png in Resources */,
 				A036B0761E0CFF790080FF26 /* ZJDDHeaderCell.xib in Resources */,
+				A0C4CB261E25D7CF00879D7E /* dd_sc@2x.png in Resources */,
 				A05A4F8C1E0D092E00239F95 /* Register_yqcode@2x.png in Resources */,
 				A05A4F5C1E0D092E00239F95 /* l_bg@2x.png in Resources */,
 				A05A4F3F1E0D092E00239F95 /* ds_lx@2x.png in Resources */,
@@ -4329,6 +4338,7 @@
 				A036AF401E0CFEDF0080FF26 /* MWZoomingScrollView.m in Sources */,
 				A036AF561E0CFEDF0080FF26 /* PSTCollectionViewData.m in Sources */,
 				A036AF271E0CFEDF0080FF26 /* MJRefreshBackFooter.m in Sources */,
+				A053F3501E24C1230046FAE6 /* WaterFlowLayout.m in Sources */,
 				A036AF6E1E0CFEDF0080FF26 /* EaseEmotionEscape.m in Sources */,
 				A05A4E471E0D04C700239F95 /* ZJRBottmCell.m in Sources */,
 				A0DE4EE91E209FCC00F4E02A /* ZJTrafficeCellTableViewCell.m in Sources */,

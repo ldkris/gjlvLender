@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -51,32 +51,19 @@
                                 <constraint firstAttribute="width" secondItem="JRl-ze-srM" secondAttribute="height" multiplier="73:70" id="dwP-9l-bQD"/>
                                 <constraint firstAttribute="height" constant="45" id="kly-Bk-nsa"/>
                             </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
                             <state key="normal" image="dd_add.png"/>
                             <connections>
                                 <action selector="onclickAddBtn:" destination="-1" eventType="touchUpInside" id="LNO-bX-HNS"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zu6-DI-o2d">
-                            <rect key="frame" x="273" y="22" width="47" height="45"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="45" id="JAF-3T-rOl"/>
-                                <constraint firstAttribute="width" secondItem="Zu6-DI-o2d" secondAttribute="height" multiplier="73:70" id="yN5-xQ-liB"/>
-                            </constraints>
-                            <state key="normal" image="dd_share.png"/>
-                            <connections>
-                                <action selector="onclickShareBtn:" destination="-1" eventType="touchUpInside" id="FcA-Qk-J8p"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="JRl-ze-srM" firstAttribute="width" secondItem="JRl-ze-srM" secondAttribute="height" multiplier="73:70" id="1e5-YT-fQ1"/>
-                        <constraint firstItem="Zu6-DI-o2d" firstAttribute="centerY" secondItem="xjR-FN-pGJ" secondAttribute="centerY" id="CpR-mN-e5d"/>
-                        <constraint firstItem="JRl-ze-srM" firstAttribute="baseline" secondItem="Zu6-DI-o2d" secondAttribute="baseline" id="Nz9-8T-sbz"/>
                         <constraint firstItem="xjR-FN-pGJ" firstAttribute="top" secondItem="Ymn-y0-Md6" secondAttribute="top" constant="22" id="V7d-Zi-FDJ"/>
-                        <constraint firstItem="JRl-ze-srM" firstAttribute="leading" secondItem="Zu6-DI-o2d" secondAttribute="trailing" id="VQ2-Rt-PcY"/>
-                        <constraint firstItem="Zu6-DI-o2d" firstAttribute="width" secondItem="Zu6-DI-o2d" secondAttribute="height" multiplier="73:70" id="XH0-Up-Psf"/>
                         <constraint firstItem="xjR-FN-pGJ" firstAttribute="leading" secondItem="Ymn-y0-Md6" secondAttribute="leading" constant="8" id="by4-H6-AaI"/>
                         <constraint firstAttribute="height" constant="64" id="olV-oP-AOd"/>
+                        <constraint firstItem="JRl-ze-srM" firstAttribute="bottom" secondItem="xjR-FN-pGJ" secondAttribute="bottom" id="oqi-yr-jjj"/>
                         <constraint firstAttribute="trailing" secondItem="JRl-ze-srM" secondAttribute="trailing" constant="8" id="roy-mf-Jcx"/>
                     </constraints>
                 </view>
@@ -104,9 +91,8 @@
         </view>
     </objects>
     <resources>
-        <image name="dd_add.png" width="30" height="28"/>
-        <image name="dd_back.png" width="30" height="28"/>
-        <image name="dd_share.png" width="30" height="28"/>
+        <image name="dd_add.png" width="37" height="36"/>
+        <image name="dd_back.png" width="37" height="36"/>
         <image name="dd_xj.png" width="75" height="69"/>
     </resources>
 </document>
